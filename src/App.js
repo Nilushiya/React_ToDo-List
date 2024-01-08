@@ -65,20 +65,6 @@ function App(){
             {/* rafce */}
 
             
-            <Header title = "Todo"/> 
-            <AddItem 
-                newItem = {newItem}
-                setNewItem = {setNewItem}
-                handleSubmit = {handleSubmit}
-            />
-            <Todo items = {items}
-                  handleCheck = {handleCheck}
-                  handleDelete = {handleDelete}
-                  />
-            <Footer length = {items.length}/>
-            {/* component */}
-            {/* rafce */}
-
         
         </div>
     );
