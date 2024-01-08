@@ -49,6 +49,7 @@ const Condent = () => {
 
 
       <button onClick={incrementFanction}>+</button>
+      <button onClick={incrementFanction}>+</button>
       <span>{count}</span>
       <button onClick={decrementFanction}>-</button>
     </div>

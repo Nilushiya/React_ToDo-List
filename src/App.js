@@ -64,8 +64,7 @@ function App(){
             {/* component */}
             {/* rafce */}
 
-            <p>I like {chose()}</p>
-            <Condent/>
+            
             <Header title = "Todo"/> 
             <AddItem 
                 newItem = {newItem}
