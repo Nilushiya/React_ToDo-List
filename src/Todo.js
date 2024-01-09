@@ -5,9 +5,9 @@ import ItemList from './ItemList'
 const Todo = ({items , handleCheck , handleDelete}) => {
    
   return (
-    <div>
+    <div >
         {(items.length) ?(
-        <ItemList
+        <ItemList 
         items = {items}
                   handleCheck = {handleCheck}
                   handleDelete = {handleDelete} 

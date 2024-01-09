@@ -2,9 +2,11 @@ import React from 'react'
 
 const Footer = ({length}) => {
     const year = new Date();
-    const footerStyle = {color:"red" , backgroundColor:'black'}; 
+    // const footerStyle = {color:"red" , backgroundColor:'black'}; 
   return (
-    <footer style={footerStyle}>
+    <footer className='footer'
+    // style={footerStyle}
+    >
       {length} List {length === 1 ? "item" : "items"} 
         Copyright @copy;
         <br></br> 

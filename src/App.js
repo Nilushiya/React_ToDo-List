@@ -2,6 +2,7 @@ import AddItem from "./AddItem";
 import Condent from "./Condent";
 import Footer from "./Footer";
 import Header from "./Header";
+import SearchItem from "./SearchItem";
 import Todo from "./Todo";
 import React, { useState } from 'react'
 
@@ -13,23 +14,11 @@ function App(){
         return fruits[random];
     }
     const [items , setItems] = useState(
-        [
-        {    id:1,
-            checked:true,
-            item:"Sing a song"
-        },
-        {   id:2,
-            checked:false,
-            item:"Dancing"
-        },
-        {   id:3,
-            checked:true,
-            item:"Playing cricket"
-        }
-        ]
+        JSON.parse(localStorage.getItem("todo-list"))
     )
 
     const [newItem , setNewItem] = useState("")
+    const [search , setSearch] = useState("")
 
     const handleCheck = (id) => {
         const listItems = items.map((item) => item.id===id ? {...item,checked:!item.checked} : item)
@@ -44,10 +33,21 @@ function App(){
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        if(!newItem) return;
         console.log("submitted")
+        addItem(newItem)
+        setNewItem("")
+    }
+
+    const addItem = (item) => {
+        const id = items.length ? items[items.length -1].id + 1 : 1
+        const addNewItem = {id , checked:false , item}
+        const listItems = [...items ,addNewItem ]
+        setItems(listItems)
+        localStorage.setItem("todo-list", JSON.stringify(listItems))
     }
     return(
-        <div>
+        <div   className="App"> 
             <p>I like {chose()}</p>
             <Condent/>
             <Header title = "Todo"/> 
@@ -56,7 +56,11 @@ function App(){
                 setNewItem = {setNewItem}
                 handleSubmit = {handleSubmit}
             />
-            <Todo items = {items}
+            <SearchItem 
+                search = {search}
+                setSearch = {setSearch}
+            />
+            <Todo items = {items.filter(item => ((item.item).toLowerCase()).includes(search.toLocaleLowerCase()))}
                   handleCheck = {handleCheck}
                   handleDelete = {handleDelete}
                   />

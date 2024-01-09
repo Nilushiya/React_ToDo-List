@@ -2,7 +2,7 @@ import React from 'react'
 
 const Header = (props) => {
   return (
-    <header style={{backgroundColor:'blue', textAlign:"center"}}>{props.title}</header>
+    <header className='header'>{props.title}</header>
   )
 }
 Header.defaultProps = {
