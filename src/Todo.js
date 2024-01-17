@@ -5,7 +5,8 @@ import ItemList from './ItemList'
 const Todo = ({items , handleCheck , handleDelete}) => {
    
   return (
-    <div >
+    <> 
+    {/* fracment */}
         {(items.length) ?(
         <ItemList 
         items = {items}
@@ -17,7 +18,7 @@ const Todo = ({items , handleCheck , handleDelete}) => {
             <p>Your list is empty</p>
         )
 } 
-    </div>
+    </>
   )
 }
 
